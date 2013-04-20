@@ -42,6 +42,17 @@
         google.maps.event.triger(map, 'resize');
 
     </script>
+
+    <script type="text/javascript">
+        $(function(){
+                navigator.geolocation.watchPosition(
+                    function(data){console.debug(data);},
+                    function(data){console.debug(data);},
+                    { enableHighAccuracy: true }
+                );
+        });
+        
+    </script>
     <style type="text/css">
         #map-canvas {
             height: 100%;
