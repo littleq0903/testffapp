@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title></title>
+    <title>Tracking Clock</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,39 +11,114 @@
 
     <!-- Place favicon.ico in the root directory -->
 
+    <!--
     <link rel="stylesheet" href="css/app.css">
+    -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTAVh9e6jwM27eQ3VJ9B1eQ35WXsCkgqQ&sensor=true">
+    </script>
+    <script type="text/javascript">
+        function mapInitialize() {
+            var mapOptions = {
+                center: new google.maps.LatLng(-34.397, 150.644),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true,
+            };
+            return map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        }
+        var map = google.maps.event.addDomListener(window, 'load', mapInitialize);
+        google.maps.event.triger(map, 'resize');
+        $(document).bind("mobileinit", function(){
+            $.mobile.defaultPageTransition = 'slide';
+        });
+
+    </script>
+    <style type="text/css">
+        #map-canvas {
+            height: 100%;
+        }
+        #addplace {
+            height: 100%;
+        }
+    </style>
   </head>
   <body>
     <!-- Use this installation button to install locally without going
          through the marketpace (see app.js) -->
-    <!-- <button id="install-btn">Install</button>     -->
+    <button id="install-btn">Install</button>
 
-    <x-listview class="list">
-      <header>
-        <h1>My Items</h1>
-        <button class="add" data-view=".edit" data-animation="slideDown">+</button>
-      </header>
-    </x-listview>
+    <!-- Homepage:start -->
+    <div data-role="page" id="home">
+    <div data-role="header" data-position="fixed">
+        <h1>Tracking Clock</h1>
+        <a href="#addfriend" class="ui-state-persist ui-btn-right" data-icon="plus">Add</a>
 
-    <x-view class="detail">
-      <header>
-        <h1>Details</h1>
-        <button data-view="x-view.edit">Edit</button>
-      </header>
+    </div>
 
-      <h1 class="title"></h1>
-      <p class="desc"></p>
-      <p class="date"></p>
-    </x-view>
+    <ul data-role="listview">
+        <li>
+        <a href="#placedetail" class="ui-state-persist">
+            <h2>Home</h2>
+            <p>Colin Su, Vista and Mom</p>
+        </a>
+        </li>
 
-    <x-view class="edit">
-      <header><h1>Edit</h1></header>
-      <div class="field">Title: <input type="text" name="title" /></div>
-      <div class="field">Description: <input type="text" name="desc" /></div>
-      <button type="submit" class="add">Add</button>
-    </x-view>
 
-    <div class="loading">Loading...</div>
+        <!-- add place button -->
+
+        <li data-icon="plus" data-theme="b">
+        <a href="#addplace" class="ui-state-persist">
+            <h2>Add Place...</h2>
+        </a>
+        </li>
+    
+    </ul>
+    </div>
+    <!-- Homepage:end -->
+
+    <!-- Add Friend:start -->
+    <div data-role="page" data-add-back-btn="true" id="addfriend">
+        <div data-role="header" data-position="fixed">
+            <h1>Add Friend</h1>
+            <a href="#" class="ui-btn-right">Done</a>
+        </div>
+    </div>
+    <!-- Add Friend:end -->
+
+    <!-- Add Place: start -->
+    <!-- Main add page: start -->
+    <div data-role="page" data-add-back-btn="true" id="addplace" style="height: 100%; width: 100%;">
+        <div data-role="header" data-position="fixed">
+            <h1>Add Place</h1>
+            <a href="#" class="ui-btn-right">Done</a>
+        </div>
+        <div id="map-canvas" style="width: 100%; height: 100%;">
+        </div>
+        <div date-role="content">
+        </div>
+    </div>
+    <!-- Main add page: end -->
+    <!-- enter name page: start -->
+    <div data-role="page" data-add-back-btn="true" id="placename">
+    </div>
+    <!-- enter name page: end -->
+
+    <!-- Add Place: end -->
+
+    <!-- Place Detail: start -->
+    <div data-role="page" data-add-back-btn="true" id="placedetail">
+        <div data-role="header" data-position="fixed">
+            <h1>Place Detail</h1>
+        </div>
+    </div>
+    <!-- Place Detail: end -->
+
+
+    
 
     <!-- Using require.js, a module system for javascript, include the
          js files. This loads "main.js", which in turn can load other
