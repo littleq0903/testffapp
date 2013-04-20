@@ -30,6 +30,9 @@
             };
             return map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         }
+        touchMove = function(event) {
+            event.preventDefault();
+        }
         var map = google.maps.event.addDomListener(window, 'load', mapInitialize);
         google.maps.event.triger(map, 'resize');
         $(document).bind("mobileinit", function(){
@@ -91,7 +94,7 @@
 
     <!-- Add Place: start -->
     <!-- Main add page: start -->
-    <div data-role="page" data-add-back-btn="true" id="addplace" style="height: 100%; width: 100%;">
+    <div ontouchmove="touchMove(event)" data-role="page" data-add-back-btn="true" id="addplace" style="height: 100%; width: 100%;">
         <div data-role="header" data-position="fixed">
             <h1>Add Place</h1>
             <a href="#" class="ui-btn-right">Done</a>
