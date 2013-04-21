@@ -78,18 +78,20 @@
         }
         #map-canvas-2 {
             height: 45%;
-            margin-top: -15px;
-            margin-left: -15px;
-            margin-bottom: 15px;
-            margin-right: 15px;
         }
         #addplace {
-            min-height: 100%;
             height: 100%;
         }
+        /*
         body, div[data-role="page"], div[data-role="content"], .swipeArea {
             height: 100%;
             width: 100%;
+        }
+        */
+        div[data-role="page"] {
+            height: 100%;
+        }
+        div[data-role="content"] {
         }
         div[data-role="header"] {
             z-index: 10;
@@ -108,6 +110,7 @@
 
     </div>
 
+    <div data-role="content">
     <ul data-role="listview">
         <li>
         <a href="#placedetail" class="ui-state-persist">
@@ -179,6 +182,8 @@
         </li>
     
     </ul>
+    </div>
+
     <button id="install-btn">Install</button>
     </div>
     <!-- Homepage:end -->
@@ -188,80 +193,79 @@
         <div data-role="header" data-position="fixed">
             <h1>Add Friend</h1>
         </div>
-        <div data-role="content">
-            <ul data-role="listview" data-split-icon="plus" data-autodividers="true" data-filter="true">
-                <!-- better sorted -->
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Colin Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
+        <div data-role="content"></div>
+        <ul data-role="listview" data-split-icon="plus" data-autodividers="true" data-filter="true">
+            <!-- better sorted -->
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Colin Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
 
-                <!-- test data -->
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Alice Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Alice Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Alice Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Beta Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Beta Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Colin Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Colin Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Colin Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Colin Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <li><a href="#">
-                    <img src="" alt="" />
-                    <h2>Colin Su</h2>
-                    <p>Status</p>
-                    <a href="#" >Select Friend to Add</a>
-                </a></li>
-                <!-- test data -->
-            </ul>
-        </div>
+            <!-- test data -->
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Alice Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Alice Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Alice Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Beta Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Beta Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Colin Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Colin Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Colin Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Colin Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <li><a href="#">
+                <img src="" alt="" />
+                <h2>Colin Su</h2>
+                <p>Status</p>
+                <a href="#" >Select Friend to Add</a>
+            </a></li>
+            <!-- test data -->
+        </ul>
     </div>
     <!-- Add Friend:end -->
 
@@ -290,8 +294,8 @@
         <div data-role="header" data-position="fixed">
             <h1>Place Detail</h1>
         </div>
-        <div data-role="content">
             <div id="map-canvas-2"></div>
+        <div data-role="content">
             <ul data-role="listview">
                 <li><a href="#">
                     <h2>Colin Su</h2>
