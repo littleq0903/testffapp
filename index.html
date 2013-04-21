@@ -34,23 +34,29 @@
                 disableDefaultUI: true,
             };
             map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            google.maps.event.triger(map, 'resize');
+            google.maps.event.trigger(map, 'resize');
             return map
         }
         touchMove = function(event) {
             event.preventDefault();
         }
-        google.maps.event.addDomListener(window, 'load', mapInitialize);
+        map = google.maps.event.addDomListener(window, 'load', mapInitialize);
+
 
     </script>
 
     <script type="text/javascript">
         $(function(){
-                navigator.geolocation.watchPosition(
-                    function(data){console.debug(data);},
-                    function(data){console.debug(data);},
-                    { enableHighAccuracy: true }
-                );
+            navigator.geolocation.watchPosition(
+                function(data){console.debug(data);},
+                function(data){console.debug(data);},
+                { enableHighAccuracy: true }
+            );
+
+
+            $(document).on('pageshow', function(){
+                google.maps.event.trigger(map, 'resize');
+            });
         });
         
     </script>
