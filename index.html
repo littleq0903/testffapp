@@ -103,12 +103,45 @@
     </style>
   </head>
   <body>
+    <!-- FB SDK -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '135551626635497', // App ID
+                channelUrl : '//littleq0903.github.io/testffapp/channel.html', // Channel File
+                status     : true, // check login status
+                cookie     : true, // enable cookies to allow the server to access the session
+                xfbml      : true  // parse XFBML
+            });
+
+            //FB.Event.subscribe('auth.statusChange', handleStatusChange);
+        };
+
+        // Load the SDK Asynchronously
+        (function(d){
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+        }(document));
+
+        function loginUser () {
+            var loginUserHandler = function (response) {
+                console.log('login response:');
+                console.log(response);
+            }
+            FB.login(loginUserHandler,{scope: 'email'})
+        }
+    </script>
     <!-- Use this installation button to install locally without going
          through the marketpace (see app.js) -->
 
     <!-- Homepage:start -->
     <div data-role="page" id="home">
     <div data-role="header" data-position="fixed">
+        <a href="#" onclick="loginUser();">Login</a>
         <h1>Tracking Clock</h1>
         <a href="#addfriend" class="ui-state-persist ui-btn-right" data-icon="plus">Add</a>
 
